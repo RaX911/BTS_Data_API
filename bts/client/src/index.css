@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+
+  --secondary: 217 32% 17%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 32% 17%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 217 91% 60%;
+  --accent-foreground: 222 47% 11%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 32% 17%;
+  --input: 217 32% 17%;
+  --ring: 217 91% 60%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  code, pre, kbd {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400;
+  }
+
+  .grid-bg {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
+
+/* Custom scrollbar for code blocks */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
